@@ -1,6 +1,7 @@
 import { useReducer, useEffect, useState } from 'react';
 import { projectFirestore, timestamp } from '../firebase/config';
 
+//document will be the document reference
 let initialState = {
 	document: null,
 	isPending: false,
