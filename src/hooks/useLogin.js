@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { projectAuth } from '../firebase/config';
+import { projectAuth, projectFirestore } from '../firebase/config';
 import { useAuthContext } from './useAuthContext';
 
 export const useLogin = () => {
 	const [isCancelled, setIsCancelled] = useState(false);
 	const [error, setError] = useState(null);
 	const [isPending, setIsPending] = useState(false);
-	const { dispatch } = useAuthContext();
+	const { dispatch, user } = useAuthContext();
 
 	const login = async (email, password) => {
 		setError(null);
@@ -18,6 +18,13 @@ export const useLogin = () => {
 				email,
 				password
 			);
+
+			//update online status
+			//doing here as user 1st needs to login, and before dispatch so it shows online on new render
+			await projectFirestore
+				.collection('users')
+				.doc(res.user.uid)
+				.update({ online: true });
 
 			// dispatch login action
 			dispatch({ type: 'LOGIN', payload: res.user });
