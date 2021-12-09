@@ -1,12 +1,19 @@
+import { useCollection } from '../../hooks/useCollection'
+
+// components
+import ProjectList from '../../components/ProjectList'
+
 // styles
-import './Dashboard.css';
+import './Dashboard.css'
 
 export default function Dashboard() {
-    console.log('jejrorj');
+  const { documents, error } = useCollection('projects')
 
-    return (
-        <div>
-            Dashboard
-        </div>
-    )
+  return (
+    <div>
+      <h2 className="page-title">Dashboard</h2>
+      {error ? <p className="error">{error}</p> : null}
+      {documents ? <ProjectList projects={documents} /> : null}
+    </div>
+  )
 }

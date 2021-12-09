@@ -32,6 +32,13 @@ const firestoreReducer = (state, action) => {
 				success: true,
 				error: null,
 			};
+		case 'UPDATED_DOCUMENT':
+			return {
+				isPending: false,
+				document: action.payload,
+				success: true,
+				error: null,
+			};
 		case 'ERROR':
 			return {
 				isPending: false,
@@ -89,9 +96,31 @@ export const useFirestore = (collection) => {
 		}
 	};
 
+	// update document
+	const updateDocument = async (id, updates) => {
+		dispatchIfNotCancelled({ type: 'IS_PENDING' });
+
+		try {
+			// returns ref to updated doc
+			// ref is reference to projects collection
+			// we only pass the fields (in an obj) we wanna update to update()
+			const updatedDocument = await ref.doc(id).update(updates);
+
+			dispatchIfNotCancelled({
+				type: 'UPDATED_DOCUMENT',
+				payload: updateDocument,
+			});
+
+			return updatedDocument;
+		} catch (err) {
+			dispatchIfNotCancelled({ type: 'ERROR', payload: err.message });
+			return null;
+		}
+	};
+
 	useEffect(() => {
 		return () => setIsCancelled(true);
 	}, []);
 
-	return { addDocument, deleteDocument, response };
+	return { addDocument, deleteDocument, updateDocument, response };
 };
