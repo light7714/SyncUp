@@ -27,3 +27,4 @@ firebase.json
 firestore.indexes.json
 
 *.rules
+.firebase
