@@ -3,7 +3,12 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 	grid-gap: 20px;
+	/* transition: all 0.3s ease; */
 }
+/* .project-list:hover {
+	transform: rotate(3deg);
+
+} */
 .project-list a {
 	background-color: #fff;
 	padding: 16px;
@@ -11,6 +16,10 @@
 	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
 	text-decoration: none;
 	color: inherit;
+	transition: all 0.3s ease;
+}
+.project-list a:hover {
+	transform: rotate(3deg);
 }
 .project-list h4 {
 	font-size: 0.9em;

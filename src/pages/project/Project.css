@@ -10,6 +10,10 @@
 	background-color: #fff;
 	padding: 30px;
 	border-radius: 4px;
+	transition: transform 0.3s;
+}
+.project-summary:hover {
+	transform: scale(1.05);
 }
 .project-summary .due-date {
 	margin: 10px 0;
@@ -61,6 +65,10 @@
 	margin-top: 20px;
 	box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
 	background: #fff;
+	transition: transform 0.2s;
+}
+.project-comments li:hover {
+	transform: scale(1.1)
 }
 .comment-author {
 	display: flex;
