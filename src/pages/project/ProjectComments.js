@@ -4,6 +4,8 @@ import { timestamp } from '../../firebase/config';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useFirestore } from '../../hooks/useFirestore';
 
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
+
 export default function ProjectComments({ project }) {
 	const { updateDocument, response } = useFirestore('projects');
 	const [newComment, setNewComment] = useState('');
@@ -47,7 +49,16 @@ export default function ProjectComments({ project }) {
 								<p>{comment.displayName}</p>
 							</div>
 							<div className="comment-date">
-								<p>date here</p>
+								{/* 1st arg is date obj, from where we wanna calc distance to now, 2nd arg is options */}
+								{/* addsuffix adds a word at end (2 days -> 2 days ago) */}
+								<p>
+									{formatDistanceToNow(
+										comment.createdAt.toDate(),
+										{
+											addSuffix: true,
+										}
+									)}
+								</p>
 							</div>
 							<div className="comment-content">
 								<p>{comment.content}</p>
