@@ -20,7 +20,7 @@ export default function Navbar() {
 							<span className="highlight-1">Sync</span>
 							<span className="highlight-2">Up</span>
 							{user ? (
-								<div className="lil">Manage your projects</div>
+								<div className="lil">Manage projects in your team</div>
 							) : null}
 						</NavLink>
 						{/* <Navlink to="/">SyncU</Navlink> */}
