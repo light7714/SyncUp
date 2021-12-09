@@ -16,7 +16,14 @@ export default function Navbar() {
 				<li className="logo">
 					<img src={Temple} alt="SyncUp logo" />
 					<span>
-						<NavLink to="/">SyncUp</NavLink>
+						<NavLink to="/">
+							<span className="highlight-1">Sync</span>
+							<span className="highlight-2">Up</span>
+							{user ? (
+								<div className="lil">Manage your projects</div>
+							) : null}
+						</NavLink>
+						{/* <Navlink to="/">SyncU</Navlink> */}
 					</span>
 				</li>
 

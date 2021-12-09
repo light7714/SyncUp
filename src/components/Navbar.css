@@ -29,3 +29,15 @@
 	text-decoration: none;
 	margin-right: 20px;
 }
+.navbar .lil {
+	font-size: 0.5em;
+	display: flex;
+}
+
+span .highlight-1 {
+	font-size: 1.4em;
+}
+span .highlight-2 {
+	color: #6c3cf0;
+	font-size: 1.4em;
+}
