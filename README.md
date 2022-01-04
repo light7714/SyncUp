@@ -1,4 +1,4 @@
-  # [SyncUp](https://syncup-a833e.web.app) - Project Management site  <img src="./SyncUp.svg" alt="SyncUp logo">
+  # [SyncUp](https://syncup-a833e.web.app) - Task Management site  <img src="./SyncUp.svg" alt="SyncUp logo">
   *Hosted on Firebase*
   
   ### Looking for an easy way to allocate and manage tasks on a team project? Sync with all members effortlessly, with **SyncUp**!
